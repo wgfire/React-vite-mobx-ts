@@ -91,9 +91,9 @@
   },
   "description": "This template augments npm init @vitejs/app app -- --template react-ts with: a vite+react+mobx startkit",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/wgfire/React-vite-mobx-ts/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/wgfire/React-vite-mobx-ts",
   "main": "src",
   "keywords": [
     "vite"
