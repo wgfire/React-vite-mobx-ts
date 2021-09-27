@@ -34,7 +34,7 @@ tailwindcss and autoprefixer.
 - Get the project code
 
 ```bash
-git clone https://github.com/taikongfeizhu/vite-ts-mobx-react-lite.git
+git clone  https://github.com/wgfire/React-vite-mobx-ts
 ```
 
 - Installation dependencies
