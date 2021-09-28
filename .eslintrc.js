@@ -12,19 +12,16 @@ module.exports = {
       version: "detect",
     },
   },
-  extends: [
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-  ],
+  extends: ["plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
   plugins: ["@typescript-eslint", "react", "react-hooks"],
   rules: {
-    "max-len": ["off", { code: 80 }],
+    "max-len": ["off", { code: 120 }],
     "block-spacing": ["error", "always"],
     "no-console": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     quotes: [1, "double"],
+    "prettier/prettier": "off",
     "sort-imports": ["error", { ignoreDeclarationSort: true }],
   },
 };
