@@ -12,12 +12,9 @@ interface Props {
 
 const Home: FC<Props> = observer((props) => {
   const { commonStore } = useStores();
-  useEffect(() => {
-    document.cookie = "token=fa18d73d05f17989c22d962cf24ae2b76c52d553";
-  });
   return (
     <div className={style.container}>
-      {commonStore.title}
+      {/* {commonStore.title}
       {store.count}
       <Button
         onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -26,7 +23,8 @@ const Home: FC<Props> = observer((props) => {
         }}
       >
         点击
-      </Button>
+      </Button> */}
+      <micro-app name='app1' url='https://star.busybox.com/branch/feature' baseroute='/'></micro-app>
     </div>
   );
 });
