@@ -24,7 +24,6 @@ const Home: FC<Props> = observer((props) => {
       >
         点击
       </Button> */}
-      <micro-app name='app1' url='https://star.busybox.com/branch/feature' baseroute='/'></micro-app>
     </div>
   );
 });
