@@ -1,17 +1,13 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 //import { useHistory } from "react-router";
-import { useStores } from "@/hooks";
 import style from "./index.module.less";
-import { store } from "./mobx";
-import { Button } from "antd";
 import { observer } from "mobx-react-lite";
 
 interface Props {
   name?: string;
 }
 
-const Home: FC<Props> = observer((props) => {
-  const { commonStore } = useStores();
+const Home: FC<Props> = observer(() => {
   return (
     <div className={style.container}>
       {/* {commonStore.title}
