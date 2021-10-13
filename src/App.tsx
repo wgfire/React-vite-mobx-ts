@@ -2,7 +2,6 @@ import React from "react";
 import { ConfigProvider } from "antd";
 import { BrowserRouter as Router } from "react-router-dom";
 import zhCN from "antd/lib/locale/zh_CN";
-import Layout from "@/components/Layout";
 import RootStore from "@/stores";
 import Routes from "@/routers";
 
@@ -13,9 +12,7 @@ function App() {
     <ConfigProvider locale={zhCN}>
       <RootStore>
         <Router>
-          <Layout>
-            <Routes />
-          </Layout>
+          <Routes />
         </Router>
       </RootStore>
     </ConfigProvider>
