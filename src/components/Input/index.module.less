@@ -1,0 +1,45 @@
+.input_border {
+  position: relative;
+  width: 100%;
+  padding: 4px 0;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.input_border ~ .focus_border {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #3399ff;
+  transition: 0.4s;
+}
+.input_border:focus ~ .focus_border,
+.has_content.input_border ~ .focus_border {
+  left: 0;
+  width: 100%;
+  transition: 0.4s;
+}
+.input_border ~ label {
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: max-content;
+  color: #aaa;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+.input_border:focus ~ label,
+.has_content.input_border ~ label {
+  top: -16px;
+  font-size: 16px;
+  color: #3399ff;
+  transition: 0.3s;
+}
+.error_text {
+  position: absolute;
+  top: 42px;
+  left: 0px;
+}
