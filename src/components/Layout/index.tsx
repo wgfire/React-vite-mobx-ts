@@ -1,27 +1,26 @@
 import React from "react";
-import { Layout } from "antd";
-import Nav from "@/components/Nav";
-import Sides from "@/components/Sides"
-import style from "./index.module.less"
-
-const { Header, Content } = Layout;
+import { Breadcrumb, Layout } from "antd";
+import Sides from "../Sides";
+const { Header, Content, Footer } = Layout;
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
-
-const App = ({ children }: Props) => {
+const App: React.FC = ({ children }: Props) => {
   return (
-    <Layout className='min-h-screen flex bg-gray-50'>
-      <Header className='w-full bg-white'  >
-      <div className={style.logo} />
-        <Nav />
-      </Header>
-    
-        {/* <Sides></Sides> */}
-        <Content>{children}</Content>
-   
-     
+    <Layout style={{ minHeight: "100vh" }}>
+      <Sides></Sides>
+      <Layout className='site-layout'>
+        <Header className='site-layout-background' style={{ padding: 0 }} />
+        <Content style={{ margin: "0 16px" }}>
+          <Breadcrumb style={{ margin: "16px 0" }}>
+            <Breadcrumb.Item>User</Breadcrumb.Item>
+            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+          </Breadcrumb>
+          {children}
+        </Content>
+        <Footer style={{ textAlign: "center" }}>Ant Design ©2018 Created by Ant UED</Footer>
+      </Layout>
     </Layout>
   );
 };

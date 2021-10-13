@@ -19,10 +19,7 @@ export const routerConfig: Array<baseConfig> = [
       </Layout>
     ),
   },
-  {
-    path: "*",
-    component: <ErrorPage></ErrorPage>,
-  },
+
   {
     path: "/about",
     component: (
@@ -38,5 +35,9 @@ export const routerConfig: Array<baseConfig> = [
         <ModulePage></ModulePage>
       </Layout>
     ),
+  },
+  {
+    path: "*",
+    component: <ErrorPage></ErrorPage>,
   },
 ];

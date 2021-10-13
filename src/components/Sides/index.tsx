@@ -1,32 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Layout, Menu } from "antd";
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from "@ant-design/icons";
+import { TeamOutlined, UserOutlined } from "@ant-design/icons";
+import { useHistory } from "react-router-dom";
+import style from "./index.module.less";
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 
 const Sides: React.FC = () => {
+  const history = useHistory();
+  const [collapsed, setCollapsed] = useState(false);
+  const onCollapse = (collapsed: any) => {
+    console.log(collapsed);
+    setCollapsed(collapsed);
+  };
+  const clickHandel = (key: any) => {
+    console.log(key);
+    history.push(key.key);
+  };
   return (
-    <Sider width={160} className='site-layout-background'>
-      <Menu
-        mode='inline'
-        defaultSelectedKeys={["1"]}
-        defaultOpenKeys={["sub1"]}
-        style={{ height: "100%", borderRight: 0 }}
-      >
-        <SubMenu key='sub1' icon={<UserOutlined />} title='subnav 1'>
-          <Menu.Item key='1'>option1</Menu.Item>
-          <Menu.Item key='2'>option2</Menu.Item>
-         
+    <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+      <div className={style.logo} />
+      <Menu theme='dark' defaultSelectedKeys={["1"]} mode='inline' onClick={clickHandel}>
+        <SubMenu key='sub1' icon={<UserOutlined />} title='集成与发布'>
+          <Menu.Item key='/module'>星舟</Menu.Item>
         </SubMenu>
-        <SubMenu key='sub2' icon={<LaptopOutlined />} title='subnav 2'>
-          <Menu.Item key='5'>option5</Menu.Item>
-          <Menu.Item key='6'>option6</Menu.Item>
-         
-        </SubMenu>
-        <SubMenu key='sub3' icon={<NotificationOutlined />} title='subnav 3'>
-          <Menu.Item key='9'>option9</Menu.Item>
-          <Menu.Item key='10'>option10</Menu.Item>
-          
+        <SubMenu key='sub2' icon={<TeamOutlined />} title='Team'>
+          <Menu.Item key='6'>Team 1</Menu.Item>
+          <Menu.Item key='8'>Team 2</Menu.Item>
         </SubMenu>
       </Menu>
     </Sider>
