@@ -11,16 +11,16 @@ export interface Env {
 
 const config: Env = {
   development: {
-    cdn: './',
-    apiBaseUrl: '/api',
+    cdn: "./",
+    apiBaseUrl: "https://www.busybox.com/",
   },
   preview: {
-    cdn: '/',
-    apiBaseUrl: '//www.beta.xxx.com/v1',
+    cdn: "/",
+    apiBaseUrl: "//www.beta.xxx.com/v1",
   },
   release: {
-    cdn: '/',
-    apiBaseUrl: '//www.xxx.com/v1',
+    cdn: "/",
+    apiBaseUrl: "//www.xxx.com/v1",
   },
 };
 

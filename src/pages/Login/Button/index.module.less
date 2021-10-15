@@ -1,0 +1,63 @@
+.bubbly_button {
+  position: relative;
+  display: inline-block;
+  float: right;
+  width: 110px;
+  height: 40px;
+  margin-top: 25px;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 1em;
+  color: #f95f00a6;
+  text-align: right;
+  letter-spacing: 26px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  border-radius: 100px;
+  // box-shadow: inset 0px 0px 2px 1px #ffc77f;
+  box-shadow: 0 5px 10px rgb(0 0 40 / 3%);
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.bubbly_button:focus {
+  outline: 0;
+}
+.bubbly_button:before,
+.bubbly_button:after {
+  position: absolute;
+  left: -20%;
+  z-index: -1000;
+  display: block;
+  width: 140%;
+  height: 100%;
+  content: "";
+  background-repeat: no-repeat;
+  transition: all ease-in-out 0.5s;
+}
+.bubbly_button:before {
+  top: -75%;
+  display: none;
+  background-image: radial-gradient(circle, #ffc77f 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #f95f00 20%, transparent 30%),
+    radial-gradient(circle, #f95f00 20%, transparent 20%), radial-gradient(circle, #f95f00 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #f95f00 15%, transparent 20%),
+    radial-gradient(circle, #f95f00 20%, transparent 20%), radial-gradient(circle, #f95f00 20%, transparent 20%),
+    radial-gradient(circle, #f95f00 20%, transparent 20%), radial-gradient(circle, #f95f00 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+.bubbly_button:after {
+  bottom: -75%;
+  display: none;
+  background-image: radial-gradient(circle, #ffc77f 20%, transparent 20%),
+    radial-gradient(circle, #f95f00 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #f95f00 15%, transparent 20%),
+    radial-gradient(circle, #f95f00 20%, transparent 20%), radial-gradient(circle, #f95f00 20%, transparent 20%),
+    radial-gradient(circle, #f95f00 20%, transparent 20%), radial-gradient(circle, #f95f00 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+.bubbly_button:active {
+  // background-color: #e60074;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+  transform: scale(0.9);
+}

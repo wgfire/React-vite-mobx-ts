@@ -13,11 +13,11 @@ const Home: FC<Props> = observer((props) => {
   const [src, setSrc] = useState<string>("https://starship.mypaas.com.cn");
   const receiveData = Object.assign(commonStore.useInfo, moduleStore.starship, {
     iframe: "https://starship.mypaas.com.cn",
-    action:'login'
+    action: "login",
   });
   useEffect(() => {
     iframe.current!.onload = function (e) {
-     //  window.postMessage(JSON.stringify(receiveData), "http://10.8.21.23:3000");
+      //  window.postMessage(JSON.stringify(receiveData), "http://10.8.21.23:3000");
       // const contentWindow = iframe.current!.contentWindow;
       // const iframdoc = contentWindow!.document;
       // iframdoc!.cookie = "token=d582e0f5d92237b04d89b0e6dffa84c15d28a9f8";
