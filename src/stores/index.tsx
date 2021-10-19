@@ -8,7 +8,7 @@ import { Tokens } from "./tokens";
 interface StoreProps {
   commonStore: CommonStore;
   homeStore: HomeStore;
-  moduleStore:moduleStore;
+  moduleStore: moduleStore;
 }
 
 interface Props {
@@ -18,19 +18,14 @@ interface Props {
 // container.registerSingleton(Tokens.Common, CommonStore);
 // container.registerSingleton(Tokens.Home, HomeStore);
 
+export const stores = {
+  commonStore: new CommonStore(), //container.resolve<CommonStore>(Tokens.Common),
+  homeStore: new HomeStore(), //container.resolve<HomeStore>(Tokens.Home),
+  moduleStore: new moduleStore(),
+};
 export const RootStoreContext = createContext<StoreProps>(null!);
 
 const RootStore: FC<Props> = ({ children }: Props) => {
-  const stores = {
-    commonStore: new CommonStore(), //container.resolve<CommonStore>(Tokens.Common),
-    homeStore: new HomeStore(), //container.resolve<HomeStore>(Tokens.Home),
-    moduleStore:new moduleStore()
-  };
-
-  return (
-    <RootStoreContext.Provider value={stores}>
-      {children}
-    </RootStoreContext.Provider>
-  );
+  return <RootStoreContext.Provider value={stores}>{children}</RootStoreContext.Provider>;
 };
 export default RootStore;

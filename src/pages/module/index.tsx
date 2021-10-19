@@ -10,7 +10,7 @@ interface Props {
 const Home: FC<Props> = observer((props) => {
   const { commonStore, moduleStore } = useStores();
   const iframe = useRef<HTMLIFrameElement>(null);
-  const [src, setSrc] = useState<string>("https://starship.mypaas.com.cn");
+  const [src, setSrc] = useState<string>("https://star.busybox.com/");
   const receiveData = Object.assign(commonStore.useInfo, moduleStore.starship, {
     iframe: "https://starship.mypaas.com.cn",
     action: "login",
@@ -25,11 +25,7 @@ const Home: FC<Props> = observer((props) => {
       //contentWindow!.location.href = contentWindow!.location.origin;
     };
   });
-  return (
-    <div className={style.container}>
-      <iframe src={src} ref={iframe}></iframe>
-    </div>
-  );
+  return <div className={style.container}>{/* <iframe src={src} ref={iframe}></iframe> */}</div>;
 });
 
 export default Home;

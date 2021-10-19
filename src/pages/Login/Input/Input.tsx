@@ -18,7 +18,6 @@ export const Input: React.FC<inputProps> = ({
 }: inputProps) => {
   const [account, setAccount] = useState(value);
   const changeHandel = (e: React.FocusEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     const value = e.target.value;
     setAccount(value);
     onChange(value);

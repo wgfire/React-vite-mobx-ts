@@ -23,5 +23,6 @@ module.exports = {
     quotes: [1, "double"],
     "prettier/prettier": "off",
     "sort-imports": ["error", { ignoreDeclarationSort: true }],
+    "react/react-in-jsx-scope": "off",
   },
 };

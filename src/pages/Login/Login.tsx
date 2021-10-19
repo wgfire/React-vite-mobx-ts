@@ -9,6 +9,13 @@ const Login: React.FC = observer((props) => {
   const submitHandel = (): void => {
     const result = localStore.verify();
     console.log("验证结果", result);
+    const postData = {
+      account: localStore.account,
+      password: localStore.password,
+      type: "saveLoginInfo",
+    };
+    localStore.submitLogin();
+    window.postMessage(JSON.stringify(postData));
   };
 
   return (

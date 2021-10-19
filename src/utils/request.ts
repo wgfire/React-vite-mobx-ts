@@ -1,18 +1,22 @@
 import { message } from "antd";
 import axios from "axios";
-import config from "../../config";
-
+import config, { envStr } from "../../config";
+import { stores } from "@/stores";
+const store = stores.commonStore;
+const env = import.meta.env.MODE;
 // 创建axios实例
 const service = axios.create({
-  baseURL: config.apiBaseUrl,
+  baseURL: config(env as envStr).apiBaseUrl,
   timeout: 50000,
   withCredentials: false, // 跨域携带cookie
 });
-
+const requestCount = 0; // 当前请求的数量
 // 请求拦截器
 service.interceptors.request.use(
   (config) => {
     config.headers["Content-Type"] = "application/json;charset=UTF-8";
+    config.data["token"] = "";
+    store.setLoading(true);
     return config;
   },
   (error) => {
@@ -28,9 +32,11 @@ service.interceptors.response.use(
       return Promise.reject(new Error("网络异常，请稍后重试"));
     }
     const res = response.data;
+    store.setLoading(false);
     return res;
   },
   (error) => {
+    store.setLoading(false);
     return Promise.reject(error);
   },
 );

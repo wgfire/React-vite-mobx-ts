@@ -4,13 +4,13 @@ import reactRefresh from "@vitejs/plugin-react-refresh";
 import vitePluginImp from "vite-plugin-imp";
 import path from "path";
 import fs from "fs";
-import config from "./config";
+import config, { envStr } from "./config";
 
 const themeVariables = lessToJS(fs.readFileSync(path.resolve(__dirname, "./config/variables.less"), "utf8"));
-
+const env = process.argv[process.argv.length - 1];
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: config.cdn,
+  base: config(env as envStr).cdn,
   plugins: [
     reactRefresh(),
     vitePluginImp({
@@ -33,7 +33,7 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,
+    port: 80,
     proxy: {
       "/api": {
         target: "http://127.0.0.1:3001",

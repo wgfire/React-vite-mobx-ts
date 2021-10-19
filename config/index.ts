@@ -1,7 +1,8 @@
 import envConfig, { Env } from "./env";
-type envStr = keyof Env;
+export type envStr = keyof Env;
+export default (env: envStr) => {
+  return envConfig[env as envStr];
+};
 
-const env = process.argv[process.argv.length - 1];
-const config = envConfig[env as envStr];
-
-export default config;
+// 服务器端是没有import.meta.env 所以在浏览器端可以执行
+// process在浏览器执行也是没有的。所以也会报错

@@ -15,12 +15,16 @@ class CommonStore {
     account: "wangg11",
     password: "WANGgang1228!",
   };
+  loading = false;
 
   setTitle() {
     console.log(this.title, "from common");
   }
   setUserInfo(data: userInfo) {
     this.useInfo = data;
+  }
+  setLoading(status: boolean) {
+    this.loading = status;
   }
 }
 
