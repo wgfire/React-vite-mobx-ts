@@ -10,13 +10,14 @@ const service = axios.create({
   timeout: 50000,
   withCredentials: false, // 跨域携带cookie
 });
-const requestCount = 0; // 当前请求的数量
+let requestCount = 0; // 当前请求的数量
 // 请求拦截器
 service.interceptors.request.use(
   (config) => {
     config.headers["Content-Type"] = "application/json;charset=UTF-8";
     config.data["token"] = "";
     store.setLoading(true);
+    requestCount++;
     return config;
   },
   (error) => {
@@ -32,7 +33,9 @@ service.interceptors.response.use(
       return Promise.reject(new Error("网络异常，请稍后重试"));
     }
     const res = response.data;
-    store.setLoading(false);
+    --requestCount;
+    if (requestCount == 0) store.setLoading(false);
+
     return res;
   },
   (error) => {

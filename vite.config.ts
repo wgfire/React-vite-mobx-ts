@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import lessToJS from "less-vars-to-js";
 import reactRefresh from "@vitejs/plugin-react-refresh";
+import viteSvgIcons from "vite-plugin-svg-icons";
 import vitePluginImp from "vite-plugin-imp";
 import path from "path";
 import fs from "fs";
@@ -20,6 +21,10 @@ export default defineConfig({
           style: (name) => `antd/lib/${name}/style/index.less`,
         },
       ],
+    }),
+    viteSvgIcons({
+      iconDirs: [path.resolve(__dirname, "src/static/svg")],
+      symbolId: "icon-[name]",
     }),
   ],
   css: {

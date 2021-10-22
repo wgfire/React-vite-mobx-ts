@@ -25,7 +25,7 @@ const Home: FC<Props> = observer((props) => {
       //contentWindow!.location.href = contentWindow!.location.origin;
     };
   });
-  return <div className={style.container}>{/* <iframe src={src} ref={iframe}></iframe> */}</div>;
+  return <div className={style.container}>{<iframe src={src} ref={iframe}></iframe>}</div>;
 });
 
 export default Home;

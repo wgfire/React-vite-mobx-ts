@@ -20,6 +20,7 @@ const Login: React.FC = observer((props) => {
 
   return (
     <div className={style.Login}>
+      {/* <div className={style.login_boxs}></div> */}
       <div className={style.login_box}>
         <header className='w-32 mb-2'>
           <img src='https://jcs.mycaigou.com/res3.0/media/images/layout/logo.svg?4dab7513' alt='' />
