@@ -86,8 +86,8 @@
       "eslint --fix --quiet",
       "git add"
     ],
-    "*.{css,scss,less,pcss}": [
-      "stylelint"
+    "*.{css,scss,less}": [
+
     ]
   },
   "description": "This template augments npm init @vitejs/app app -- --template react-ts with: a vite+react+mobx startkit",
