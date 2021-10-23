@@ -1,10 +1,10 @@
-import React from 'react';
-import { Button, Result } from 'antd';
+import React from "react";
+import { Button, Result } from "antd";
 
 class ErrorBoundary extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
-    this.state = { hasError: false, info: '', eventId: '' };
+    this.state = { hasError: false, info: "", eventId: "" };
   }
 
   static getDerivedStateFromError() {
@@ -13,7 +13,7 @@ class ErrorBoundary extends React.Component<any, any> {
 
   componentDidCatch(error: any, info: any) {
     this.setState({
-      info: error + '' + info,
+      info: error + "" + info,
     });
   }
 

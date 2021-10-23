@@ -23,8 +23,8 @@ export default defineConfig({
       ],
     }),
     viteSvgIcons({
-      iconDirs: [path.resolve(__dirname, "src/static/svg")],
-      symbolId: "icon-[name]",
+      iconDirs: [path.resolve(process.cwd(), "src/static/svg")],
+      symbolId: "icon-[dir]-[name]",
     }),
   ],
   css: {
@@ -41,7 +41,7 @@ export default defineConfig({
     port: 80,
     proxy: {
       "/api": {
-        target: "http://127.0.0.1:3001",
+        target: "https://www.busybox.com",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },

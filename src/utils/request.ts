@@ -12,18 +12,15 @@ const service = axios.create({
 });
 let requestCount = 0; // 当前请求的数量
 // 请求拦截器
-service.interceptors.request.use(
-  (config) => {
-    config.headers["Content-Type"] = "application/json;charset=UTF-8";
-    config.data["token"] = "";
-    store.setLoading(true);
-    requestCount++;
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  },
-);
+service.interceptors.request.use((config) => {
+  config.headers["Content-Type"] = "application/json;charset=UTF-8";
+  config.data["token"] = store.token;
+  console.log(config, "请求");
+
+  store.setLoading(true);
+  requestCount++;
+  return config;
+});
 
 // 响应拦截器
 service.interceptors.response.use(
@@ -32,13 +29,15 @@ service.interceptors.response.use(
       message.error(`发送request失败${JSON.stringify(response)},方法名：${response.request.responseURL}`);
       return Promise.reject(new Error("网络异常，请稍后重试"));
     }
-    const res = response.data;
-    --requestCount;
-    if (requestCount == 0) store.setLoading(false);
+    requestCount--;
+    console.log(requestCount, "次数");
 
+    if (requestCount == 0) store.setLoading(false);
+    const res = response.data;
     return res;
   },
   (error) => {
+    message.error("网络异常，请检查网络重试!");
     store.setLoading(false);
     return Promise.reject(error);
   },

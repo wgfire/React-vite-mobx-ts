@@ -12,7 +12,7 @@ export interface Env {
 const config: Env = {
   development: {
     cdn: "./",
-    apiBaseUrl: "https://www.busybox.com/",
+    apiBaseUrl: "https://www.busybox.com",
   },
   preview: {
     cdn: "/",

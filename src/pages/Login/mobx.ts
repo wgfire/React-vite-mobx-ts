@@ -1,5 +1,7 @@
 import { makeAutoObservable, when } from "mobx";
 import service from "@/utils/request";
+import { stores } from "@/stores";
+const commonStore = stores.commonStore;
 export class Store {
   constructor() {
     makeAutoObservable(this);
@@ -45,7 +47,7 @@ export class Store {
     }
     return false;
   }
-  async submitLogin() {
+  async submitLogin(callback: () => void) {
     if (!this.verifyStatus) return false;
     const data = await service.post("/login", {
       data: {
@@ -53,6 +55,8 @@ export class Store {
         password: this.password,
       },
     });
+    commonStore.setToken(data.data.token);
+    callback();
     console.log(data, "响应");
   }
 }

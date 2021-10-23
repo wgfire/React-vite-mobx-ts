@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Layout, Menu } from "antd";
 import { TeamOutlined, UserOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import style from "./index.module.less";
 import { baseConfig, routerConfig } from "@/routers/config";
+import SvgIcon from "../SvgIcon";
+import classNames from "classnames";
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 function transformRouter(array: Array<baseConfig>) {
@@ -41,6 +43,7 @@ function setMenu(item: baseConfig) {
 
 const Sides: React.FC = () => {
   const history = useHistory();
+  const { pathname } = useLocation();
   const [collapsed, setCollapsed] = useState(false);
   const [menuArray, setMenuArray] = useState(transformRouter(routerConfig));
   const onCollapse = (collapsed: any) => {
@@ -54,16 +57,17 @@ const Sides: React.FC = () => {
   useEffect(() => {
     console.log(menuArray, "菜单数据");
   }, [menuArray]);
+
   return (
     <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-      <div className={style.logo} />
-      <Menu theme='dark' defaultSelectedKeys={["1"]} mode='inline' onClick={clickHandel}>
+      <div className={classNames("flex items-center ml-4 mt-2 ")}>
+        <SvgIcon name='logo' size='middle'></SvgIcon>
+        <span className='text-white ml-2'>BusyBox</span>
+      </div>
+      <Menu theme='dark' defaultSelectedKeys={[pathname]} mode='inline' onClick={clickHandel}>
         {menuArray.map((el) => {
           return el.component;
         })}
-        {/* <Menu.Item key='/Application' icon={<UserOutlined />}>
-          快捷应用
-        </Menu.Item>  */}
       </Menu>
     </Sider>
   );
