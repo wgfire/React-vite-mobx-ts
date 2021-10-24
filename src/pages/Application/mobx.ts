@@ -22,11 +22,11 @@ export class Store {
   }
 
   async getApplist() {
-    const data = await service.post("/application/get-app-list", {
-      data: {
-        app_name: "",
-      },
-    });
+    // const data = await service.post("/application/get-app-list", {
+    //   data: {
+    //     app_name: "",
+    //   },
+    // });
     const arr = [[]];
   }
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Layout, Menu } from "antd";
-import { TeamOutlined, UserOutlined } from "@ant-design/icons";
 import { useHistory, useLocation } from "react-router-dom";
 import style from "./index.module.less";
 import { baseConfig, routerConfig } from "@/routers/config";
@@ -45,6 +44,7 @@ const Sides: React.FC = () => {
   const history = useHistory();
   const { pathname } = useLocation();
   const [collapsed, setCollapsed] = useState(false);
+  const [selectkey, setSelectkey] = useState<Array<string>>([]);
   const [menuArray, setMenuArray] = useState(transformRouter(routerConfig));
   const onCollapse = (collapsed: any) => {
     console.log(collapsed);
@@ -53,8 +53,11 @@ const Sides: React.FC = () => {
   const clickHandel = (key: any) => {
     console.log(key);
     history.push(key.key);
+    setSelectkey([...key.keyPath]);
   };
   useEffect(() => {
+    const keys = pathname.match(/(\/\w+)/g)![0];
+    console.log(`${keys}`, "sss");
     console.log(menuArray, "菜单数据");
   }, [menuArray]);
 
@@ -64,7 +67,14 @@ const Sides: React.FC = () => {
         <SvgIcon name='logo' size='middle'></SvgIcon>
         <span className='text-white ml-2'>BusyBox</span>
       </div>
-      <Menu theme='dark' defaultSelectedKeys={[pathname]} mode='inline' onClick={clickHandel}>
+      <Menu
+        theme='dark'
+        openKeys={["/module"]}
+        defaultOpenKeys={selectkey}
+        defaultSelectedKeys={[pathname]}
+        mode='inline'
+        onClick={clickHandel}
+      >
         {menuArray.map((el) => {
           return el.component;
         })}

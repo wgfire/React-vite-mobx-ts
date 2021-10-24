@@ -6,11 +6,14 @@ import { baseConfig, routerConfig } from "./config";
 const RouterContainer: React.FC = () => (
   <div className='router-container'>
     <Suspense fallback={<Spin />}>
+   
       <Switch>
         {routerConfig.map((el, index) => {
           return SetRouter(el);
         })}
       </Switch>
+      
+     
     </Suspense>
   </div>
 );

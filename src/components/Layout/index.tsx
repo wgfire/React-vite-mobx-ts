@@ -5,7 +5,9 @@ import style from "./index.module.less";
 import Headers from "../Header";
 import { useLocation } from "react-router";
 import Breadcrumbs from "../Breadcrumb";
+import classNames from "classnames";
 const { Content, Footer } = Layout;
+
 
 interface Props {
   children?: React.ReactNode;
@@ -17,8 +19,10 @@ const App: React.FC = ({ children }: Props) => {
       <Layout className='site-layout'>
         <Headers />
         <Breadcrumbs />
-        <Content className={style.content}>{children}</Content>
-        <Footer className={style.footer}>Power buy BuysBox</Footer>
+        <Content className={classNames(style.content,"animate__animated")}>{children}</Content>
+        <Footer className={classNames( style.footer)}>
+          <div className="animate__animated animate__pulse animate__infinite animate__slower">Power buy BuysBox</div>
+        </Footer>
       </Layout>
     </Layout>
   );
