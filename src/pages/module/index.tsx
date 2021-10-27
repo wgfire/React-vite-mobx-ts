@@ -3,6 +3,9 @@ import React, { FC, useEffect, useRef, useState } from "react";
 import { useStores } from "@/hooks";
 import style from "./index.module.less";
 import { observer } from "mobx-react-lite";
+import service from "@/utils/request";
+import { menuDataFace } from "@/stores/Common";
+import { useHistory } from "react-router";
 
 interface Props {
   name?: string;
@@ -10,21 +13,24 @@ interface Props {
 const Home: FC<Props> = observer((props) => {
   const { commonStore, moduleStore } = useStores();
   const iframe = useRef<HTMLIFrameElement>(null);
-  const [src, setSrc] = useState<string>("https://starship.mypaas.com.cn");
-  const receiveData = Object.assign(commonStore.useInfo, moduleStore.starship, {
-    iframe: "https://starship.mypaas.com.cn",
-    action: "login",
-  });
+  const [src, setSrc] = useState<string>(commonStore.currentMenu || "");
+  const [menu, setMenu] = useState();
+  const { location } = useHistory();
+  const getMenu = async () => {
+    const menuData = await service.post("/dmp-login/get-dmp-url", {});
+    const data: Array<menuDataFace> = menuData.data;
+    try {
+      const index = data.findIndex((el) => {
+        const key = location.pathname.match(/(\/\w+)/g)![1].replace("/", "");
+        console.log(key, el.name, "location.key");
+        return el.name === key;
+      });
+      setSrc(data[index].url);
+    } catch (error) {}
+  };
   useEffect(() => {
-    iframe.current!.onload = function (e) {
-      //  window.postMessage(JSON.stringify(receiveData), "http://10.8.21.23:3000");
-      // const contentWindow = iframe.current!.contentWindow;
-      // const iframdoc = contentWindow!.document;
-      // iframdoc!.cookie = "token=d582e0f5d92237b04d89b0e6dffa84c15d28a9f8";
-      //window.location.reload()
-      //contentWindow!.location.href = contentWindow!.location.origin;
-    };
-  });
+    getMenu();
+  }, [location]);
   return <div className={style.container}>{<iframe src={src} ref={iframe}></iframe>}</div>;
 });
 

@@ -5,6 +5,11 @@ import { makeAutoObservable } from "mobx";
 export interface userInfo {
   account: string;
   password: string;
+  name: string;
+}
+export interface menuDataFace {
+  name: string;
+  url: string;
 }
 class CommonStore {
   constructor() {
@@ -12,15 +17,24 @@ class CommonStore {
     // 判断浏览器里是否有token
     const token = localStorage.getItem("token");
     this.setToken(token ? token : null);
+    const name = localStorage.getItem("account");
+    this.setName(name ? name : "");
   }
 
   token: string | null = "";
   useInfo: userInfo = {
     account: "",
     password: "",
+    name: "",
   };
   loading = false;
+  menuData: Array<menuDataFace> = [];
+  currentMenu = "";
 
+  setName(name: string) {
+    this.useInfo.name = name;
+    localStorage.setItem("account", name);
+  }
   setToken(token: any) {
     this.token = token;
     if (token === null) token = "";

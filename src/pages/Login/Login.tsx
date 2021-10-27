@@ -12,7 +12,7 @@ import bg from "../../static/image/login/bj2.png";
 const localStore = new Store();
 const Login: React.FC = observer((props) => {
   const history = useHistory();
-  const submitHandel = (values): void => {
+  const submitHandel = (values: any): void => {
     console.log("验证结果", values);
     const postData = {
       account: values.username,

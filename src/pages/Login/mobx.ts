@@ -21,11 +21,14 @@ export class Store {
         password: this.password,
       },
     });
+
     commonStore.setToken(data.data.token);
     commonStore.setUserInfo({
       account: this.account,
       password: this.password,
+      name: data.data.name,
     });
+    commonStore.setName(data.data.name);
     callback();
     console.log(data, "响应");
   }

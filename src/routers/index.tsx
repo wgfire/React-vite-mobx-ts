@@ -4,7 +4,6 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import { baseConfig, routerConfig } from "./config";
 import { InterceptorRoute } from "./interceptorRoute";
 import Login from "@/pages/Login/Login";
-import ErrorPage from "@/pages/Error";
 
 const RouterContainer: React.FC = () => (
   <div className='router-container'>

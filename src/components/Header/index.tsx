@@ -19,12 +19,13 @@ const Headers: React.FC = (props) => {
   const exitClick = async () => {
     service.post("/login-out", {}).then((res) => {
       commonStore.setToken(null);
+      commonStore.setName("");
       history.push("/login");
     });
   };
   return (
     <Header className='flex justify-end pl-2 pr-6 items-center' style={{ height: "44px", background: "#191939" }}>
-      {history.location.pathname === "/Application" && (
+      {/* {history.location.pathname === "/Application" && (
         <Input
           size='small'
           defaultValue={value}
@@ -36,13 +37,13 @@ const Headers: React.FC = (props) => {
           className={classNames(style.search_input)}
           placeholder='请输入应用分类/名字'
         ></Input>
-      )}
+      )} */}
 
-      <SearchOutlined
+      {/* <SearchOutlined
         style={{ color: "white", fontSize: "20px" }}
         className='cursor-pointer mr-4 ml-4'
         onClick={searchClick}
-      />
+      /> */}
 
       <FullscreenOutlined
         style={{ color: "white", fontSize: "20px" }}
@@ -58,7 +59,7 @@ const Headers: React.FC = (props) => {
         title='退出系统'
       />
       <Avatar src='https://joeschmoe.io/api/v1/random' className='mr-4 ml-4' />
-      <span className='text-white'>MyName</span>
+      <span className='text-white'>{commonStore.useInfo.name}</span>
     </Header>
   );
 };
