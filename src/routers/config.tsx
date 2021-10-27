@@ -11,27 +11,13 @@ const ApplicationPage = lazy(() => import("../pages/Application"));
 export interface baseConfig {
   path: string;
   icon?: React.ReactElement;
-  component: React.ReactNode;
+  component: React.ReactElement;
   title?: string;
   children?: Array<baseConfig>;
   isMenu?: boolean; // 是否在左侧菜单显示
 }
 
 export const routerConfig: Array<baseConfig> = [
-  {
-    path: "/",
-    isMenu: false,
-    component: (
-      <Layout>
-        <HomePage></HomePage>
-      </Layout>
-    ),
-  },
-  {
-    isMenu: false,
-    path: "/login",
-    component: <LoginPage></LoginPage>,
-  },
   {
     isMenu: true,
     path: "/Application",
@@ -83,10 +69,22 @@ export const routerConfig: Array<baseConfig> = [
       },
     ],
   },
-
+  {
+    path: "/",
+    isMenu: false,
+    component: (
+      <Layout>
+        <HomePage></HomePage>
+      </Layout>
+    ),
+  },
   {
     isMenu: false,
     path: "*",
-    component: <ErrorPage></ErrorPage>,
+    component: (
+      <Layout>
+        <ErrorPage></ErrorPage>
+      </Layout>
+    ),
   },
 ];

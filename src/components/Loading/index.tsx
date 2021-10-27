@@ -11,7 +11,7 @@ const Loading: React.FC = observer(() => {
 
   return loading ? (
     <div className={style.wrapper_spin}>
-      <Spin tip='加载中...'></Spin>
+      <Spin tip='加载中...' wrapperClassName={style.self_spin}></Spin>
     </div>
   ) : null;
 });

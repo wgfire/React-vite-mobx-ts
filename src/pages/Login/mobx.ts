@@ -6,46 +6,12 @@ export class Store {
   constructor() {
     makeAutoObservable(this);
   }
-
-  account = "wangg11";
-  password = "WANGgang1228!";
-  errorText = "";
-  errorPass = "";
+  account = "";
+  password = "";
   verifyStatus = false;
 
-  verify() {
-    const result = this.verifyAccount();
-    const result2 = this.verifyPass();
-    console.log(result, "账号", result2, "密码");
-
-    this.verifyStatus = result && result2 ? true : false;
-    return this.verifyStatus;
-  }
   setData(key: string, data: string) {
     this[key] = data;
-  }
-  verifyAccount(context?: string, verifyCallback?: () => void) {
-    const back = verifyCallback ? verifyCallback() : true;
-    if (!this.account && back) {
-      this.errorText = context ?? "请先输入账号";
-      return false;
-    } else if (this.account && back) {
-      this.errorText = "";
-      return true;
-    }
-    return false;
-  }
-
-  verifyPass(context?: string, verifyCallback?: () => void) {
-    const back = verifyCallback ? verifyCallback() : true;
-    if (!this.password && back) {
-      this.errorPass = context ?? "请先输入密码";
-      return false;
-    } else if (this.password && back) {
-      this.errorPass = "";
-      return true;
-    }
-    return false;
   }
   async submitLogin(callback: () => void) {
     if (!this.verifyStatus) return false;
@@ -56,6 +22,10 @@ export class Store {
       },
     });
     commonStore.setToken(data.data.token);
+    commonStore.setUserInfo({
+      account: this.account,
+      password: this.password,
+    });
     callback();
     console.log(data, "响应");
   }

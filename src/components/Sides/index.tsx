@@ -56,9 +56,13 @@ const Sides: React.FC = () => {
     setSelectkey([...key.keyPath]);
   };
   useEffect(() => {
-    const keys = pathname.match(/(\/\w+)/g)![0];
-    console.log(`${keys}`, "sss");
-    console.log(menuArray, "菜单数据");
+    try {
+      const keys = pathname.match(/(\/\w+)/g)![0];
+      console.log(`${keys}`, "sss");
+      console.log(menuArray, "菜单数据");
+    } catch (error) {
+      console.log("路由地址不正确");
+    }
   }, [menuArray]);
 
   return (

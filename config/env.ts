@@ -16,7 +16,7 @@ const config: Env = {
   },
   preview: {
     cdn: "/",
-    apiBaseUrl: "//www.beta.xxx.com/v1",
+    apiBaseUrl: "https://www.busybox.com",
   },
   release: {
     cdn: "/",

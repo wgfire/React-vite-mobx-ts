@@ -2,12 +2,12 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   height: 100vh;
-  padding-top: 28px;
-  padding-right: 10%;
   background-image: url("../../static/image/login/bj.png");
-  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position-x: -1px;
+  background-size: 101% 100%;
   & input[type="text"] {
     box-sizing: border-box;
     width: 100%;
@@ -15,8 +15,15 @@
     color: #333;
     letter-spacing: 1px;
   }
+}
+.login_wrap {
+  display: flex;
+  align-items: center;
+  width: 65%;
+  height: 660px;
   img {
-    height: 100%;
+    flex: auto;
+    height: 660px;
   }
 }
 
@@ -33,12 +40,10 @@
 }
 
 .login_box {
-  width: calc(100% - 40px);
-  min-width: 383px;
-  max-width: 45%;
-  min-height: 696px;
+  width: 50%;
+  min-width: 400px;
+  height: 660px;
   padding: 44px;
-  margin-bottom: 28px;
   overflow: hidden;
   background: white;
   /* box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;*/

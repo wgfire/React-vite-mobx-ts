@@ -1,4 +1,5 @@
 // 用类 导出类的时候就直接有了类型
+import { message } from "antd";
 import { makeAutoObservable } from "mobx";
 
 export interface userInfo {
@@ -9,18 +10,21 @@ class CommonStore {
   constructor() {
     makeAutoObservable(this);
     // 判断浏览器里是否有token
-    this.setToken(localStorage.getItem("token"));
+    const token = localStorage.getItem("token");
+    this.setToken(token ? token : null);
   }
 
   token: string | null = "";
   useInfo: userInfo = {
-    account: "wangg11",
-    password: "WANGgang1228!",
+    account: "",
+    password: "",
   };
   loading = false;
 
-  setToken(token: string | null) {
+  setToken(token: any) {
     this.token = token;
+    if (token === null) token = "";
+    // setItem 的value为string类型
     localStorage.setItem("token", token!);
   }
   setUserInfo(data: userInfo) {
