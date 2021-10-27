@@ -8,6 +8,7 @@ export const errorCode = new Map([
       setTimeout(() => {
         window.location.href = "/login";
       }, 1000);
+      return Promise.reject("登录失败，请重新登录");
     },
   ],
 ]);

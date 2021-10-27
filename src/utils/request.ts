@@ -53,7 +53,10 @@ service.interceptors.response.use(
     console.log(res);
     const handel = errorCode.get(res.errcode);
     if (handel) handel();
-    if (res.errcode != 0) return message.error(res.errmsg);
+    if (res.errcode != 0) {
+      message.error(res.errmsg);
+      return Promise.reject(response);
+    }
     return res;
   },
   (error) => {
