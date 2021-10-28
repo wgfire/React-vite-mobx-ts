@@ -5,6 +5,8 @@ import style from "./index.module.less";
 import { baseConfig, routerConfig } from "@/routers/config";
 import SvgIcon from "../SvgIcon";
 import classNames from "classnames";
+import { useStores } from "@/hooks";
+
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 function transformRouter(array: Array<baseConfig>) {
@@ -13,7 +15,6 @@ function transformRouter(array: Array<baseConfig>) {
       return item.isMenu === true;
     })
     .map((item) => {
-      item.component = null;
       setMenu(item);
       return item;
     });
@@ -46,6 +47,7 @@ const Sides: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [selectkey, setSelectkey] = useState<Array<string>>([]);
   const [menuArray, setMenuArray] = useState(transformRouter(routerConfig));
+  const { commonStore } = useStores();
   const onCollapse = (collapsed: any) => {
     console.log(collapsed);
     setCollapsed(collapsed);
@@ -57,7 +59,7 @@ const Sides: React.FC = () => {
   };
   useEffect(() => {
     try {
-      const keys = pathname.match(/(\/\w+)/g)![0];
+      const keys = pathname.match(/(\/\w+)/g)![1];
       console.log(`${keys}`, "sss");
       console.log(menuArray, "菜单数据");
     } catch (error) {

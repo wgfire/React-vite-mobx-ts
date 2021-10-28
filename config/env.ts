@@ -1,6 +1,7 @@
 interface Path {
   cdn: string;
   apiBaseUrl: string;
+  withCredentials?: boolean;
 }
 
 export interface Env {
@@ -13,14 +14,16 @@ const config: Env = {
   development: {
     cdn: "./",
     apiBaseUrl: "https://www.busybox.com",
+    withCredentials: false,
   },
   preview: {
     cdn: "/",
-    apiBaseUrl: "https://www.busybox.com",
+    apiBaseUrl: "https://busyboxbeckend.b2btst.com",
+    withCredentials: true,
   },
   release: {
     cdn: "/",
-    apiBaseUrl: "//www.xxx.com/v1",
+    apiBaseUrl: "https://busyboxbeckend.b2btst.com",
   },
 };
 

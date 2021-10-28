@@ -14,7 +14,7 @@ interface responseSelf {
 const service = axios.create({
   baseURL: config(env as envStr).apiBaseUrl,
   timeout: 50000,
-  withCredentials: true, // 跨域携带cookie
+  withCredentials: config(env as envStr).withCredentials, // 跨域携带cookie
 });
 let requestCount = 0; // 当前请求的数量
 // 请求拦截器
@@ -53,7 +53,11 @@ service.interceptors.response.use(
     console.log(res);
     const handel = errorCode.get(res.errcode);
     if (handel) handel();
-    if (res.errcode != 0) return message.error(res.errmsg);
+    if (res.errcode != 0) {
+      message.error(res.errmsg);
+      return Promise.reject(response);
+    }
+
     return res;
   },
   (error) => {
