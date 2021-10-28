@@ -18,8 +18,8 @@ const Headers: React.FC = (props) => {
   };
   const exitClick = async () => {
     service.post("/login-out", {}).then((res) => {
-      commonStore.setToken(null);
-      commonStore.setName("");
+      commonStore.clearInfo();
+
       history.push("/login");
     });
   };
@@ -59,7 +59,7 @@ const Headers: React.FC = (props) => {
         title='退出系统'
       />
       <Avatar src='https://joeschmoe.io/api/v1/random' className='mr-4 ml-4' />
-      <span className='text-white'>{commonStore.useInfo.name}</span>
+      <span className='text-white'>{commonStore.use?.name}</span>
     </Header>
   );
 };

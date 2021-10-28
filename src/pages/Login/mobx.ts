@@ -26,9 +26,11 @@ export class Store {
     commonStore.setUserInfo({
       account: this.account,
       password: this.password,
+    });
+    commonStore.setUse({
+      account: this.account,
       name: data.data.name,
     });
-    commonStore.setName(data.data.name);
     callback();
     console.log(data, "响应");
   }

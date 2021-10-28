@@ -13,8 +13,8 @@ const RouterContainer: React.FC = () => (
         {routerConfig.map((el, index) => {
           return SetRouter(el);
         })}
-        <Redirect from='/' to={{ pathname: "/Application" }}></Redirect>
       </Switch>
+      <Redirect from='/' to={{ pathname: "/Application" }}></Redirect>
     </Suspense>
   </div>
 );

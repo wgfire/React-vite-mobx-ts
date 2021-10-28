@@ -14,7 +14,7 @@ interface responseSelf {
 const service = axios.create({
   baseURL: config(env as envStr).apiBaseUrl,
   timeout: 50000,
-  withCredentials: true, // 跨域携带cookie
+  withCredentials: config(env as envStr).withCredentials, // 跨域携带cookie
 });
 let requestCount = 0; // 当前请求的数量
 // 请求拦截器

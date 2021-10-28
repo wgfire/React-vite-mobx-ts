@@ -61,7 +61,7 @@ export const Store = makeAutoObservable<AppList>({
     this.setAppList(appList);
   },
   async loginApp(params) {
-    const account = commonStore.useInfo.account;
+    const account = commonStore.use?.account;
     const data = await service.post("/application/login-app", {
       data: {
         app_code: params.app_code,
@@ -71,8 +71,6 @@ export const Store = makeAutoObservable<AppList>({
 
     console.log("开始跳转", data.data.token);
     const token = data.data.token;
-    // document.domain = "busybox.com";
-    // document.cookie = `star-token=${token}`;
     const postData = {
       data: {
         type: "setTokenBuyLogin",
@@ -81,6 +79,6 @@ export const Store = makeAutoObservable<AppList>({
       type: "saveInfo",
     };
     window.open(params.link);
-    window.postMessage(JSON.stringify(postData));
+    //  window.postMessage(JSON.stringify(postData));
   },
 });
