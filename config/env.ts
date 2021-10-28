@@ -18,12 +18,12 @@ const config: Env = {
   },
   preview: {
     cdn: "/",
-    apiBaseUrl: "https://busyboxbeckend.b2btst.com",
+    apiBaseUrl: "https://busyboxbackend.b2btst.com",
     withCredentials: true,
   },
   release: {
     cdn: "/",
-    apiBaseUrl: "https://busyboxbeckend.b2btst.com",
+    apiBaseUrl: "https://busyboxbackend.b2btst.com",
   },
 };
 
