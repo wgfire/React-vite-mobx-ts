@@ -16,11 +16,11 @@ const config: Env = {
   },
   preview: {
     cdn: "/",
-    apiBaseUrl: "https://www.busybox.com",
+    apiBaseUrl: "https://busyboxbeckend.b2btst.com",
   },
   release: {
     cdn: "/",
-    apiBaseUrl: "//www.xxx.com/v1",
+    apiBaseUrl: "https://busyboxbeckend.b2btst.com",
   },
 };
 

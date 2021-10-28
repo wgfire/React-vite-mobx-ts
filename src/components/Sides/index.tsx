@@ -15,7 +15,6 @@ function transformRouter(array: Array<baseConfig>) {
       return item.isMenu === true;
     })
     .map((item) => {
-      item.component = null;
       setMenu(item);
       return item;
     });

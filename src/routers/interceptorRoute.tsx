@@ -13,7 +13,7 @@ export const InterceptorRoute: React.FC<interceptorProps> = ({ component, redire
   const token = localStorage.getItem("token");
   const pathname = window.location.pathname;
 
-  if (!token && pathname != "/login") {
+  if (!token && pathname != "/login" && pathname != "/") {
     message.destroy();
     message.warning("登录失败，请重新登录");
   }
