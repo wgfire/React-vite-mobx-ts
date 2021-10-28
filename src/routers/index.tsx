@@ -14,7 +14,7 @@ const RouterContainer: React.FC = () => (
           return SetRouter(el);
         })}
       </Switch>
-      <Redirect from='/' to={{ pathname: "/Application" }}></Redirect>
+      {/* <Redirect from='' exact to={{ pathname: "/Application" }}></Redirect> */}
     </Suspense>
   </div>
 );
