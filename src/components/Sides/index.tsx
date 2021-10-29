@@ -62,7 +62,7 @@ const Sides: React.FC = () => {
     <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
       <div className={classNames("flex items-center ml-4 mt-2 ")}>
         <SvgIcon name='logo' size='middle'></SvgIcon>
-        <span className='text-white ml-2'>BusyBox</span>
+        <span className='text-white ml-2 text-xl'>BusyBox</span>
       </div>
       <Menu
         theme='dark'
