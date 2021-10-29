@@ -7,13 +7,14 @@ import { AnimateElementProps, ElementCommonProps } from "./type";
 //     return <div></div>
 // })
 
-// export const AnimateElement: React.ComponentType<ElementCommonProps & AnimateElementProps> = (props:ElementCommonProps & AnimateElementProps) => {
-//   const { animateName, duration, className, ...restProps } = props;
-//   return (
-//     <div
-//       {...(restProps)}
-//       className={classnames(animateName && `animate__animated animate__${animateName}`, className)}
-//       style={{ ...(props.style as React.CSSProperties), "--animate-duration": `${duration}ms` }}
-//     />
-//   );
-// };
+export const AnimateElement: React.FC<ElementCommonProps & AnimateElementProps> = (props:ElementCommonProps & AnimateElementProps) => {
+  const { animateName, duration, className, ...restProps } = props;
+  return (
+    <div
+      {...(restProps)}
+      className={classnames(animateName && `animate__animated animate__${animateName}`, className)}
+      style={{ ...(props.style as React.CSSProperties), animationDuration:`${duration}ms` }}
+     
+    />
+  );
+};

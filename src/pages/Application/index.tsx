@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import style from "./index.module.less";
 import { Store, listProps } from "./mobx";
 import AppItem from "./AppItem";
+import { AnimateElement } from "@/components/Animate";
 
 const Application: React.FC = observer((props) => {
   const localStore = Store;
@@ -26,13 +27,13 @@ const Application: React.FC = observer((props) => {
         localStore.appList.map((el: any, index) => {
           const item: Array<listProps> = el;
           return (
-            <AppItem
-              key={index}
-              title={item[0].name}
-              style={setStyle(index + 1)}
-              array={item}
-              className='animate__animated animate__fadeInRight '
-            ></AppItem>
+            <AnimateElement animateName='fadeInRight' key={index}>
+              <AppItem
+                title={item[0].name}
+                style={setStyle(index + 1)}
+                array={item}
+              ></AppItem>
+            </AnimateElement>
           );
         })}
     </div>

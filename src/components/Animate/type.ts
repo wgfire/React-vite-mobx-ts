@@ -103,7 +103,7 @@ export interface ElementCommonProps {
 
 export interface AnimateElementProps {
   /** 动画类型 */
-  animateName?: AnimateName;
+  animateName: AnimateName;
   /**
    * 动画执行的时间，单位 ms
    * @default 1000
