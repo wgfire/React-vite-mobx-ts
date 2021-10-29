@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Layout, Menu } from "antd";
 import { useHistory, useLocation } from "react-router-dom";
 import style from "./index.module.less";
-import { baseConfig, routerConfig } from "@/routers/config";
+import { baseConfig, filterRouter } from "@/routers/config";
 import SvgIcon from "../SvgIcon";
 import classNames from "classnames";
 import { useStores } from "@/hooks";
@@ -10,14 +10,10 @@ import { useStores } from "@/hooks";
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 function transformRouter(array: Array<baseConfig>) {
-  const router = array
-    .filter((item, index) => {
-      return item.isMenu === true;
-    })
-    .map((item) => {
-      setMenu(item);
-      return item;
-    });
+  const router = array.map((item) => {
+    setMenu(item);
+    return item;
+  });
 
   return router;
 }
@@ -45,25 +41,20 @@ const Sides: React.FC = () => {
   const history = useHistory();
   const { pathname } = useLocation();
   const [collapsed, setCollapsed] = useState(false);
-  const [selectkey, setSelectkey] = useState<Array<string>>([]);
-  const [menuArray, setMenuArray] = useState(transformRouter(routerConfig));
-  const { commonStore } = useStores();
+  const [selectkey, setSelectkey] = useState<Array<string>>(["/module"]);
+  const [menuArray, setMenuArray] = useState(transformRouter(filterRouter()));
   const onCollapse = (collapsed: any) => {
-    console.log(collapsed);
     setCollapsed(collapsed);
   };
   const clickHandel = (key: any) => {
-    console.log(key);
     history.push(key.key);
-    setSelectkey([...key.keyPath]);
+    // setSelectkey([...key.keyPath]);
   };
   useEffect(() => {
     try {
       const keys = pathname.match(/(\/\w+)/g)![1];
-      console.log(`${keys}`, "sss");
-      console.log(menuArray, "菜单数据");
     } catch (error) {
-      console.log("路由地址不正确");
+      history.push("/Application");
     }
   }, [menuArray]);
 
@@ -75,7 +66,6 @@ const Sides: React.FC = () => {
       </div>
       <Menu
         theme='dark'
-        openKeys={["/module"]}
         defaultOpenKeys={selectkey}
         defaultSelectedKeys={[pathname]}
         mode='inline'

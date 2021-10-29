@@ -14,7 +14,6 @@ const Home: FC<Props> = observer((props) => {
   const { commonStore, moduleStore } = useStores();
   const iframe = useRef<HTMLIFrameElement>(null);
   const [src, setSrc] = useState<string>(commonStore.currentMenu || "");
-  const [menu, setMenu] = useState();
   const { location } = useHistory();
   const getMenu = async () => {
     const menuData = await service.post("/dmp-login/get-dmp-url", {});

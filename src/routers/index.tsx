@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Spin } from "antd";
 import { Redirect, Route, Switch } from "react-router-dom";
-import { baseConfig, routerConfig } from "./config";
+import { baseConfig, flatRouter, routerConfig } from "./config";
 import { InterceptorRoute } from "./interceptorRoute";
 import Login from "@/pages/Login/Login";
 
@@ -10,31 +10,28 @@ const RouterContainer: React.FC = () => (
     <Suspense fallback={<Spin />}>
       <Switch>
         <Route path='/login' exact={true} component={Login}></Route>
-        {routerConfig.map((el, index) => {
-          return SetRouter(el);
+        {flatRouter().map((el, index) => {
+          const router = SetRouter(el);
+          return router;
         })}
+        {/* <Redirect from='' exact={true} to={{ pathname: "/Application" }}></Redirect> */}
       </Switch>
-      {/* <Redirect from='' exact to={{ pathname: "/Application" }}></Redirect> */}
     </Suspense>
   </div>
 );
 
-function SetRouter(el: baseConfig): any {
-  if (el.children) {
-    return el.children.map((item: baseConfig) => {
-      return SetRouter(item);
-    });
-  } else {
-    return (
-      <InterceptorRoute
-        path={el.path}
-        exact={true}
-        key={el.path}
-        component={el.component}
-        redirect='/login'
-      ></InterceptorRoute>
-    );
-  }
+// 可以在el里配置redirect
+function SetRouter(el: baseConfig): React.ReactElement {
+  const Component = el.component;
+  return (
+    <InterceptorRoute
+      path={el.path}
+      exact={true}
+      key={el.path}
+      Component={Component}
+      redirect='/login'
+    ></InterceptorRoute>
+  );
 }
 
 export default RouterContainer;

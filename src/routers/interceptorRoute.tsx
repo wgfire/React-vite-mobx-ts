@@ -5,11 +5,11 @@ import React from "react";
 import { ReactElement } from "react";
 import { Redirect, Route, useHistory } from "react-router";
 export interface interceptorProps {
-  component: ReactElement;
+  Component?: React.ReactElement;
   redirect?: string;
   [protoName: string]: any;
 }
-export const InterceptorRoute: React.FC<interceptorProps> = ({ component, redirect, ...rest }: interceptorProps) => {
+export const InterceptorRoute: React.FC<interceptorProps> = ({ Component, redirect, ...rest }: interceptorProps) => {
   const token = localStorage.getItem("token");
   const pathname = window.location.pathname;
   const history = useHistory();
@@ -18,5 +18,9 @@ export const InterceptorRoute: React.FC<interceptorProps> = ({ component, redire
     message.destroy();
     message.warning("登录失败，请重新登录");
   }
-  return token ? <Route {...rest}>{component}</Route> : <Redirect to={{ pathname: redirect }}></Redirect>;
+  return token ? (
+    <Route {...rest} render={(props) => Component}></Route>
+  ) : (
+    <Redirect to={{ pathname: redirect }}></Redirect>
+  );
 };

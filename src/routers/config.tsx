@@ -70,15 +70,6 @@ export const routerConfig: Array<baseConfig> = [
     ],
   },
   {
-    path: "/",
-    isMenu: false,
-    component: (
-      <Layout>
-        <HomePage></HomePage>
-      </Layout>
-    ),
-  },
-  {
     isMenu: false,
     path: "*",
     component: (
@@ -88,3 +79,32 @@ export const routerConfig: Array<baseConfig> = [
     ),
   },
 ];
+
+/**
+ * 将路由数组打平
+ */
+
+export const flatRouter = () => {
+  const flatRouterData: Array<baseConfig> = [];
+  function setFlat(arr: Array<baseConfig> = routerConfig) {
+    arr.forEach((element: baseConfig) => {
+      if (element.children) {
+        flatRouterData.push(element);
+        setFlat(element.children);
+      } else {
+        flatRouterData.push(element);
+      }
+    });
+  }
+  setFlat();
+  return flatRouterData;
+};
+
+/**
+ * 过滤不需要的菜单数据
+ */
+export const filterRouter = () => {
+  return routerConfig.filter((item, index) => {
+    return item.isMenu === true;
+  });
+};
