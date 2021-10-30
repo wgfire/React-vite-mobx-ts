@@ -2,10 +2,12 @@
 import { message } from "antd";
 import { makeAutoObservable } from "mobx";
 
+// 用户账号信息
 export interface userInfo {
   account: string;
   password: string;
 }
+//
 export interface menuDataFace {
   name: string;
   url: string;
@@ -19,9 +21,9 @@ class CommonStore {
     makeAutoObservable(this);
     // 判断浏览器里是否有token
     const token = localStorage.getItem("token");
-    this.setToken(token ? token : null);
-    const use = JSON.parse(localStorage.getItem("use"));
-    this.setUse(use ? use : null);
+    token && this.setToken(token);
+    const itemUse = localStorage.getItem("use");
+    itemUse && this.setUse(JSON.parse(itemUse));
   }
 
   token: string | null = "";
@@ -38,11 +40,10 @@ class CommonStore {
   currentMenu = "";
 
   clearInfo() {
+    this.clearLocalStorageItem(["use", "token"]);
     this.setUserInfo(null);
-    this.setUse(null);
-    this.setToken(null);
   }
-  setUse(data: localUse | null) {
+  setUse(data: localUse) {
     this.use = data;
     localStorage.setItem("use", JSON.stringify(data));
   }
@@ -58,6 +59,15 @@ class CommonStore {
   }
   setLoading(status: boolean) {
     this.loading = status;
+  }
+  clearLocalStorageItem(StorageItem: Array<string>) {
+    try {
+      StorageItem.forEach((el) => {
+        localStorage.removeItem(el);
+      });
+    } catch (error) {
+      message.error("重置信息失败");
+    }
   }
 }
 

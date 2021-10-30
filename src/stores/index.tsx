@@ -1,13 +1,13 @@
 import React, { FC, PropsWithChildren, createContext } from "react";
 import { container } from "tsyringe";
 import CommonStore from "./Common";
-import HomeStore from "./Home";
+import ActionStore from "./Action";
 import moduleStore from "./moduleConfig";
 import { Tokens } from "./tokens";
 
 interface StoreProps {
   commonStore: CommonStore;
-  homeStore: HomeStore;
+  ActionStore: ActionStore;
   moduleStore: moduleStore;
 }
 
@@ -20,7 +20,7 @@ interface Props {
 
 export const stores = {
   commonStore: new CommonStore(), //container.resolve<CommonStore>(Tokens.Common),
-  homeStore: new HomeStore(), //container.resolve<HomeStore>(Tokens.Home),
+  ActionStore: new ActionStore(), //container.resolve<HomeStore>(Tokens.Home),
   moduleStore: new moduleStore(),
 };
 export const RootStoreContext = createContext<StoreProps>(null!);

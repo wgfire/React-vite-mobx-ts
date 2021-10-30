@@ -8,7 +8,6 @@ const Breadcrumbs: React.FC = (props) => {
   const { pathname } = useLocation();
   const [Bread, setBread] = useState<Array<baseConfig>>([]);
   useEffect(() => {
-    console.log("路由变化", pathname);
     let bread: Array<baseConfig> = [];
     const arr = routerConfig.filter((el) => {
       return el.isMenu;
@@ -30,7 +29,6 @@ const Breadcrumbs: React.FC = (props) => {
     }
     bread = bread.reverse();
     setBread(bread);
-    console.log(bread, "路由数组");
   }, [pathname]);
 
   return (

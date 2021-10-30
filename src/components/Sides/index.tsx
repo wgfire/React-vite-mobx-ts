@@ -50,18 +50,11 @@ const Sides: React.FC = () => {
     history.push(key.key);
     // setSelectkey([...key.keyPath]);
   };
-  useEffect(() => {
-    try {
-      const keys = pathname.match(/(\/\w+)/g)![1];
-    } catch (error) {
-      history.push("/Application");
-    }
-  }, [menuArray]);
-
   return (
     <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
       <div className={classNames("flex items-center ml-4 mt-2 ")}>
-        <SvgIcon name='logo' size='middle'></SvgIcon>
+        <SvgIcon name='logo' size='middle'></SvgIcon> 
+        <img src="" alt="" />
         <span className='text-white ml-2 text-xl'>BusyBox</span>
       </div>
       <Menu

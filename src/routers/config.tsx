@@ -2,13 +2,13 @@ import React, { lazy } from "react";
 import Layout from "@/components/Layout";
 import ErrorPage from "@/pages/Error";
 import { AppstoreOutlined, CoffeeOutlined } from "@ant-design/icons";
+import { Redirect } from "react-router-dom";
 const HomePage = lazy(() => import("../pages/Home"));
-const AboutPage = lazy(() => import("../pages/About"));
 const ModulePage = lazy(() => import("../pages/module"));
-const LoginPage = lazy(() => import("../pages/Login/Login"));
 const ApplicationPage = lazy(() => import("../pages/Application"));
 
-export interface baseConfig {
+
+export interface baseConfig  {
   path: string;
   icon?: React.ReactElement;
   component: React.ReactElement;
@@ -28,6 +28,12 @@ export const routerConfig: Array<baseConfig> = [
         <ApplicationPage></ApplicationPage>
       </Layout>
     ),
+  },
+  {
+    path:"/",
+    component:(
+      <Redirect from='/' exact={true} to={{ pathname: "/Application" }}></Redirect>
+    )
   },
   {
     isMenu: true,
