@@ -6,8 +6,6 @@ import { Redirect } from "react-router-dom";
 const HomePage = lazy(() => import("../pages/Home"));
 const ModulePage = lazy(() => import("../pages/module"));
 const ApplicationPage = lazy(() => import("../pages/Application"));
-
-
 export interface baseConfig  {
   path: string;
   icon?: React.ReactElement;

@@ -1,7 +1,7 @@
 import { useStores } from "@/hooks";
 import { domFullRequest } from "@/utils/common";
 import service from "@/utils/request";
-import { BellOutlined, ExportOutlined, FullscreenOutlined, SearchOutlined } from "@ant-design/icons";
+import { ExportOutlined, FullscreenOutlined } from "@ant-design/icons";
 import { Avatar, Input, Layout } from "antd";
 import classNames from "classnames";
 import React, { useState } from "react";

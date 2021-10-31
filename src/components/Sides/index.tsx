@@ -5,8 +5,7 @@ import style from "./index.module.less";
 import { baseConfig, filterRouter } from "@/routers/config";
 import SvgIcon from "../SvgIcon";
 import classNames from "classnames";
-import { useStores } from "@/hooks";
-
+import logo from "@/static/image/Application/logo.png"
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 function transformRouter(array: Array<baseConfig>) {
@@ -52,10 +51,9 @@ const Sides: React.FC = () => {
   };
   return (
     <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-      <div className={classNames("flex items-center ml-4 mt-2 ")}>
-        <SvgIcon name='logo' size='middle'></SvgIcon> 
-        <img src="" alt="" />
-        <span className='text-white ml-2 text-xl'>BusyBox</span>
+      <div className={classNames("flex items-center ml-8 mt-4 mb-4")}>
+        {/* <SvgIcon name='logo' size='middle'></SvgIcon>  */}
+        <img src={logo} alt="" />
       </div>
       <Menu
         theme='dark'

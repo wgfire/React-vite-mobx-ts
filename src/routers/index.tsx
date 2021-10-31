@@ -1,10 +1,9 @@
 import React, { Suspense } from "react";
 import { Spin } from "antd";
-import { Redirect, Route, Switch } from "react-router-dom";
-import { baseConfig, flatRouter, routerConfig } from "./config";
+import { Route, Switch } from "react-router-dom";
+import { baseConfig, flatRouter } from "./config";
 import { InterceptorRoute } from "./interceptorRoute";
 import Login from "@/pages/Login/Login";
-
 const RouterContainer: React.FC = () => (
   <div className='router-container'>
     <Suspense fallback={<Spin />}>

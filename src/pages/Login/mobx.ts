@@ -22,7 +22,7 @@ export class Store {
       },
     });
 
-    commonStore.setToken(data.data.token);
+    commonStore.setToken( "dsd");
     commonStore.setUserInfo({
       account: this.account,
       password: this.password,
@@ -32,6 +32,6 @@ export class Store {
       name: data.data.name,
     });
     callback();
-    console.log(data, "响应");
+   
   }
 }

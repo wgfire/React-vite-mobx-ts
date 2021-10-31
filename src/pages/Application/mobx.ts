@@ -13,6 +13,67 @@ export interface listProps {
   type: string;
   icon: string;
 }
+const mocKdData = [
+  [{
+    app_name:"TAPD",
+    app_code: "tapd",
+    link:"https://www.baidu.com",
+    name:"TAPD",
+    order:"1",
+    sort:"1",
+    type:"1",
+    icon:"TAPD"
+  },{
+    app_name:"蓝湖",
+    app_code: "tapd",
+    link:"https://www.baidu.com",
+    name:"TAPD",
+    order:"1",
+    sort:"1",
+    type:"1",
+    icon:"lanhu"
+  }  ],
+  [{
+    app_name:"TAPD",
+    app_code: "tapd",
+    link:"https://www.baidu.com",
+    name:"TAPD",
+    order:"1",
+    sort:"1",
+    type:"1",
+    icon:"TAPD"
+  }],
+  [{
+    app_name:"TAPD",
+    app_code: "tapd",
+    link:"https://www.baidu.com",
+    name:"TAPD",
+    order:"1",
+    sort:"1",
+    type:"1",
+    icon:"TAPD"
+  }],
+  [{
+    app_name:"TAPD",
+    app_code: "tapd",
+    link:"https://www.baidu.com",
+    name:"TAPD",
+    order:"1",
+    sort:"1",
+    type:"1",
+    icon:"TAPD"
+  }],
+  [{
+    app_name:"TAPD",
+    app_code: "tapd",
+    link:"https://www.baidu.com",
+    name:"TAPD",
+    order:"1",
+    sort:"1",
+    type:"1",
+    icon:"TAPD"
+  }],
+]
 
 export interface loginAppFace {
   link: string;
@@ -25,7 +86,7 @@ interface AppList {
   loginApp: (params: loginAppFace) => void;
 }
 export const Store = makeAutoObservable<AppList>({
-  appList: [],
+  appList: [], //mocKdData,
 
   setAppList(data: Array<listProps>) {
     this.appList = data;
@@ -40,7 +101,7 @@ export const Store = makeAutoObservable<AppList>({
     const arr = data.data.list;
     const appList: Array<listProps> = [];
 
-    let sort = Object.keys(arr).reduce((key, item) => {
+    let sort = Object.keys(arr).reduce((key:Array<any>, item) => {
       const sortName = {
         name: item,
         sort: arr[item][0].order,
@@ -48,7 +109,7 @@ export const Store = makeAutoObservable<AppList>({
       key.push(sortName);
       return key;
     }, []);
-    sort = sort.sort((a, b) => {
+    sort = sort.sort((a:listProps, b:listProps) => {
       const per = parseInt(a.sort);
       const next = parseInt(b.sort);
       return per - next;

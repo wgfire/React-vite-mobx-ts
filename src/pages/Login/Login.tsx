@@ -42,14 +42,14 @@ const Login: React.FC = observer((props) => {
         <AnimateElement className={style.login_box} animateName='rotateInDownRight'>
           <img src={leftPointPng}className='absolute left-1 bottom-1' alt='' />
           <img src={pointPng} className='absolute top-0 right-0' alt='' />
-          <header className='mt-28 mb-2 flex  justify-center'>
+          <header className='mt-14 mb-2 flex  justify-center'>
             <img src={logoPng} alt='' />
           </header>
           <div className={style.form_content}>
             <Form name='normal_login' className='login-form' initialValues={{ remember: true }} onFinish={submitHandel}>
               <Form.Item name='username' rules={[{ required: true, message: "请输入域账号" }]}>
                 <Input
-                  size='large'
+                  size="large"
                   type='text'
                   prefix={<UserOutlined className='site-form-item-icon' />}
                   placeholder='请输入域账号'
@@ -63,9 +63,9 @@ const Login: React.FC = observer((props) => {
                   placeholder='请输入域账号密码'
                 />
               </Form.Item>
-              <Form.Item>
-                <Button size='large' type='primary' htmlType='submit' className='w-full'>
-                  Log in
+              <Form.Item >
+                <Button size='large' type='primary' htmlType='submit' className='w-full mt-2'>
+                 登录
                 </Button>
               </Form.Item>
             </Form>

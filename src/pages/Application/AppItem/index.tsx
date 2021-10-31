@@ -29,7 +29,7 @@ const AppItem: React.FC<itemProps> = (props: itemProps) => {
                 clickHandel(e, { link: el.link, app_code: el.app_code });
               }}
             >
-              <SvgIcon name={el.icon} size='large' className='mb-2 mt-4'></SvgIcon>
+              <SvgIcon name={el.icon} size='large' className='mb-2 mt-2'></SvgIcon>
               <span>{el.app_name}</span>
             </div>
           );
