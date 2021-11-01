@@ -23,7 +23,7 @@ const App: React.FC = ({ children }: Props) => {
         <Content className={classNames(style.content, "animate__animated")}>{children}</Content>
         <Footer className={classNames(style.footer)}>
           <AnimateElement animateName='pulse' className='animate__infinite animate__slower'>
-            <div>Power buy BusyBox</div>
+            <div>Power by BusyBox</div>
           </AnimateElement>
         </Footer>
       </Layout>
