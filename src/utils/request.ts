@@ -4,12 +4,21 @@ import config, { envStr } from "../../config";
 import { stores } from "@/stores";
 import { errorCode } from "./errcode";
 
+interface Response {
+  errcode: number; // 0  10001 1002
+  errmsg: string;
+  data?: {
+    list: [];
+  };
+}
+
 const store = stores.commonStore;
 const env = import.meta.env.MODE;
-interface responseSelf {
+interface ResponseSelf extends AxiosResponse<Response> {
   errcode: number;
   errmsg: string;
 }
+
 // 创建axios实例
 const service = axios.create({
   baseURL: config(env as envStr).apiBaseUrl,
@@ -37,7 +46,7 @@ service.interceptors.response.use(
     requestCount--;
     console.log(requestCount, "次数");
     if (requestCount == 0) store.setLoading(false);
-    const res = response.data;
+    const res = response;
     return res;
   },
   (error) => {
@@ -50,15 +59,15 @@ service.interceptors.response.use(
 service.interceptors.response.use(
   (response) => {
     const res = response;
-    console.log(res);
-    const handel = errorCode.get(res.errcode);
+    console.log(res, "响应");
+    const handel = errorCode.get(res.data.errcode);
     if (handel) handel();
-    if (res.errcode != 0) {
-      message.error(res.errmsg);
-      return Promise.reject(response);
+    if (res.data.errcode != 0) {
+      message.error(res.data.errmsg);
+      return Promise.reject(response.data);
     }
 
-    return res;
+    return res.data;
   },
   (error) => {
     return Promise.reject(error);

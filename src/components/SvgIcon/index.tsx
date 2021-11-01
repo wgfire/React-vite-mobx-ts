@@ -7,7 +7,7 @@ export interface iconProps {
   prefix?: string;
   color?: string;
   size?: "middle" | "small" | "large";
-  style?: React.StyleHTMLAttributes<any>;
+  style?: React.CSSProperties;
   className?: string;
   [x: string]: any;
 }

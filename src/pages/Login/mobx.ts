@@ -22,7 +22,7 @@ export class Store {
       },
     });
 
-    commonStore.setToken( "dsd");
+    commonStore.setToken(data.data.token);
     commonStore.setUserInfo({
       account: this.account,
       password: this.password,
@@ -32,6 +32,5 @@ export class Store {
       name: data.data.name,
     });
     callback();
-   
   }
 }

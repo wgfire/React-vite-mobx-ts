@@ -19,16 +19,15 @@
 .login_wrap {
   display: flex;
   align-items: center;
-  width: 65%;
+  width: max-content;
   height: 100%;
-  transform: scale(0.9);
-
 }
 .bg_img {
-  flex: auto;
-  height: 61%;
   position: relative;
-  .bg_logo{
+  flex: auto;
+  width: 464px;
+  height: 536px;
+  .bg_logo {
     position: absolute;
     top: 20px;
   }
@@ -47,12 +46,12 @@
 }
 
 .login_box {
-  width: 46%;
-  min-width: 400px;
-  height: 61%;
+  position: relative;
+  width: 464px;
+  min-width: 464px;
+  height: 536px;
   padding: 44px;
   overflow: hidden;
-  position: relative;
   background: white;
   /* box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;*/
 }
@@ -62,7 +61,6 @@
   margin: 0px auto;
   margin-top: 60px;
 }
-
 
 :global .site-form-item-icon {
   color: #33333373;
