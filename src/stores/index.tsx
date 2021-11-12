@@ -2,13 +2,11 @@ import React, { FC, PropsWithChildren, createContext } from "react";
 import { container } from "tsyringe";
 import CommonStore from "./Common";
 import ActionStore from "./Action";
-import moduleStore from "./moduleConfig";
 import { Tokens } from "./tokens";
 
 interface StoreProps {
   commonStore: CommonStore;
   ActionStore: ActionStore;
-  moduleStore: moduleStore;
 }
 
 interface Props {
@@ -21,7 +19,6 @@ interface Props {
 export const stores = {
   commonStore: new CommonStore(), //container.resolve<CommonStore>(Tokens.Common),
   ActionStore: new ActionStore(), //container.resolve<HomeStore>(Tokens.Home),
-  moduleStore: new moduleStore(),
 };
 export const RootStoreContext = createContext<StoreProps>(null!);
 
