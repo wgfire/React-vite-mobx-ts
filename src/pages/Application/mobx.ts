@@ -108,12 +108,12 @@ export const Store = makeAutoObservable<AppList>({
   },
 
   async getApplist() {
-    const data = await service.post("/application/get-app-list", {
-      data: {
-        app_name: "",
-      },
-    });
-    const arr = data.data.list;
+    // const data = await service.post("/application/get-app-list", {
+    //   data: {
+    //     app_name: "",
+    //   },
+    // });
+    const arr = mocKdData; //data.data.list;
     const appList: Array<listProps> = [];
 
     let sort = Object.keys(arr).reduce((key: Array<any>, item) => {

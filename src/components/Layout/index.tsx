@@ -17,7 +17,7 @@ const App: React.FC = ({ children }: Props) => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sides></Sides>
-      <Layout className='site-layout' style={{ maxHeight: "100vh" }}>
+      <Layout className='site-layout' style={{ maxHeight: "100vh", position: "relative" }}>
         <Headers />
         <Breadcrumbs />
         <Content className={classNames(style.content, "animate__animated")}>{children}</Content>

@@ -3,10 +3,10 @@ import Layout from "@/components/Layout";
 import ErrorPage from "@/pages/Error";
 import { AppstoreOutlined, CoffeeOutlined } from "@ant-design/icons";
 import { Redirect } from "react-router-dom";
-const HomePage = lazy(() => import("../pages/Home"));
+const IframePage = lazy(() => import("../pages/Iframe"));
 const ModulePage = lazy(() => import("../pages/module"));
 const ApplicationPage = lazy(() => import("../pages/Application"));
-export interface baseConfig  {
+export interface baseConfig {
   path: string;
   icon?: React.ReactElement;
   component: React.ReactElement;
@@ -21,66 +21,47 @@ export const routerConfig: Array<baseConfig> = [
     path: "/Application",
     title: "快捷应用",
     icon: <AppstoreOutlined />,
-    component: (
-      <Layout>
-        <ApplicationPage></ApplicationPage>
-      </Layout>
-    ),
+    component: <ApplicationPage></ApplicationPage>,
   },
   {
-    path:"/",
-    component:(
-      <Redirect from='/' exact={true} to={{ pathname: "/Application" }}></Redirect>
-    )
+    path: "/",
+    component: <Redirect from='/' exact={true} to={{ pathname: "/Application" }}></Redirect>,
   },
   {
     isMenu: true,
     path: "/module",
     title: "研发效能盘",
     icon: <CoffeeOutlined />,
-    component: (
-      <Layout>
-        <ModulePage></ModulePage>
-      </Layout>
-    ),
+    component: <ModulePage></ModulePage>,
     children: [
       {
         title: "生产质量",
         path: "/module/product", // 生产质量
-        component: (
-          <Layout>
-            <ModulePage></ModulePage>
-          </Layout>
-        ),
+        component: <ModulePage></ModulePage>,
       },
       {
         title: "迭代效率",
         path: "/module/efficient", // 迭代效率
-        component: (
-          <Layout>
-            <ModulePage></ModulePage>
-          </Layout>
-        ),
+        component: <ModulePage></ModulePage>,
       },
       {
         title: "需求响应力",
         path: "/module/response", // 需求向应力
-        component: (
-          <Layout>
-            <ModulePage></ModulePage>
-          </Layout>
-        ),
+        component: <ModulePage></ModulePage>,
       },
     ],
   },
   {
+    isMenu: true,
+    title: "产研宅基地",
+    path: "/ExperienceBase",
+    icon: <CoffeeOutlined />,
+    component: <IframePage></IframePage>,
+  },
+  {
     isMenu: false,
     path: "*",
-    component: (
-      <Layout>
-        <ErrorPage></ErrorPage>
-      </Layout>
-    ),
+    component: <ErrorPage></ErrorPage>,
   },
 ];
 

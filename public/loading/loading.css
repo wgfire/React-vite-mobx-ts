@@ -1,0 +1,342 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: black !important;
+}
+
+.g-container {
+  position: relative;
+  height: 10vw;
+  margin: 20vh auto;
+  filter: blur(0.2vw) contrast(8);
+}
+
+.g-view{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 10vw;
+  overflow: hidden;
+  font-size: 5vw;
+  color: white;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+
+.g-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 33vw;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.g-view:nth-child(0) {
+  z-index: 10;
+  width: 0vw;
+}
+.g-view-0 {
+    animation: rotate 1.5s ease-in 0ms ;
+}
+.g-view:nth-child(0)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: -3vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(1) {
+  z-index: 9;
+  width: 3vw;
+  animation: rotate 1.5s ease-in 200ms ;
+}
+.g-view-1 {
+    animation:rotate 1.5s ease-in 200ms ;
+}
+.g-view:nth-child(1)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 0vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(2) {
+  z-index: 8;
+  width: 6vw;
+
+}
+.g-view-2 {
+    animation: rotate 1.5s ease-in 400ms;
+}
+.g-view:nth-child(2)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 3vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(3) {
+  z-index: 7;
+  width: 9vw;
+  animation: rotate 1.5s ease-in 600ms;
+}
+.g-view:nth-child(3)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 6vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(4) {
+  z-index: 6;
+  width: 12vw;
+  animation: rotate 1.5s ease-in 800ms;
+}
+.g-view:nth-child(4)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 9vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(5) {
+  z-index: 5;
+  width: 15vw;
+  animation: rotate 1.5s ease-in 1000ms;
+}
+.g-view:nth-child(5)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 12vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(6) {
+  z-index: 4;
+  width: 18vw;
+  animation: rotate 1.5s ease-in 1200ms;
+}
+.g-view:nth-child(6)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 15vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(7) {
+  z-index: 3;
+  width: 21vw;
+  animation: rotate 1.5s ease-in 1400ms;
+}
+.g-view:nth-child(7)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 18vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(8) {
+  z-index: 2;
+  width: 24vw;
+  animation: rotate 1.5s ease-in 1600ms;
+}
+.g-view:nth-child(8)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 21vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(9) {
+  z-index: 1;
+  width: 27vw;
+  animation: rotate 1.5s ease-in 1800ms;
+}
+.g-view:nth-child(9)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 24vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(10) {
+  z-index: 0;
+  width: 30vw;
+  animation: rotate 1.5s ease-in 2000ms;
+}
+.g-view:nth-child(10)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 27vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(11) {
+  z-index: -1;
+  width: 33vw;
+  animation: rotate 1.5s ease-in 2200ms;
+}
+.g-view:nth-child(11)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 30vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(12) {
+  z-index: -2;
+  width: 36vw;
+  animation: rotate 1.5s ease-in 2400ms;
+}
+.g-view:nth-child(12)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 33vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(13) {
+  z-index: -3;
+  width: 39vw;
+  animation: rotate 1.5s ease-in 2600ms;
+}
+.g-view:nth-child(13)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 36vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(14) {
+  z-index: -4;
+  width: 42vw;
+  animation: rotate 1.5s ease-in 2800ms;
+}
+.g-view:nth-child(14)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 39vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(15) {
+  z-index: -5;
+  width: 45vw;
+  animation: rotate 1.5s ease-in 3000ms;
+}
+.g-view:nth-child(15)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 42vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+.g-view:nth-child(16) {
+  z-index: -6;
+  width: 48vw;
+  animation: rotate 1.5s ease-in 3200ms;
+}
+.g-view:nth-child(16)::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 45vw;
+  height: 10vw;
+  content: "";
+  background: black;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1, 1);
+  }
+  70% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(0.1, 0.5);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1, 1);
+  }
+}

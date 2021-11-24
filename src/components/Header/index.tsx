@@ -25,26 +25,6 @@ const Headers: React.FC = (props) => {
   };
   return (
     <Header className='flex justify-end pl-2 pr-6 items-center' style={{ height: "44px", background: "#191939" }}>
-      {/* {history.location.pathname === "/Application" && (
-        <Input
-          size='small'
-          defaultValue={value}
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
-          id='search_input'
-          style={{ width: "160px" }}
-          className={classNames(style.search_input)}
-          placeholder='请输入应用分类/名字'
-        ></Input>
-      )} */}
-
-      {/* <SearchOutlined
-        style={{ color: "white", fontSize: "20px" }}
-        className='cursor-pointer mr-4 ml-4'
-        onClick={searchClick}
-      /> */}
-
       <FullscreenOutlined
         style={{ color: "white", fontSize: "20px" }}
         title='全屏'

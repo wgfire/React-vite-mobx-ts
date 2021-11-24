@@ -24,6 +24,7 @@ module.exports = {
     "prettier/prettier": "off",
     "sort-imports": ["error", { ignoreDeclarationSort: true }],
     "react/react-in-jsx-scope": "off",
-    "react/prop-types":"off"
+    "react/prop-types": "off",
+    "react/display-name": "off",
   },
 };

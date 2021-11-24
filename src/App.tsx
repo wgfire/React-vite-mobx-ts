@@ -8,8 +8,10 @@ import Loading from "@/components/Loading";
 import history from "./routers/history";
 import "./styles/index.less";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { Notifications } from "./utils/notification";
 
 function App() {
+  new Notifications();
   return (
     <ConfigProvider locale={zhCN}>
       <ErrorBoundary>

@@ -7,15 +7,15 @@ import { menuDataFace } from "@/stores/Common";
 import { useHistory } from "react-router";
 
 export interface moduleUrl {
-  url:string
+  url: string;
 }
 const Home: FC = observer((props) => {
-  const { commonStore, moduleStore } = useStores();
+  const { commonStore } = useStores();
   const iframe = useRef<HTMLIFrameElement>(null);
   const [src, setSrc] = useState<string>(commonStore.currentMenu || "");
   const { location } = useHistory();
   const getMenu = async () => {
-    const menuData =  await service.post("/dmp-login/get-dmp-url", {});
+    const menuData = await service.post("/dmp-login/get-dmp-url", {});
     const data: Array<menuDataFace> = menuData.data;
     try {
       const index = data.findIndex((el) => {
