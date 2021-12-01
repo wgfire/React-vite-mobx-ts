@@ -1,4 +1,4 @@
 export const Tokens = {
   Common: Symbol("CommonStore"),
-  Home: Symbol("HomeStore"),
+  ActionStore: Symbol("ActionStore"),
 };
