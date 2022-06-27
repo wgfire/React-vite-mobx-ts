@@ -16,7 +16,12 @@ const Iframe: React.FC<IframeProps> = observer((props: IframeProps) => {
 
   return (
     <div className={styles.container}>
-      <iframe src={src} className={styles.iframe} ref={iframeId}></iframe>
+      <iframe
+        src={src}
+        className={styles.iframe}
+        ref={iframeId}
+        sandbox='allow-scripts allow-same-origin allow-top-navigation allow-forms'
+      ></iframe>
     </div>
   );
 });

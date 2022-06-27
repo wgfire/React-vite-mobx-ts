@@ -21,7 +21,11 @@ export const routerConfig: Array<baseConfig> = [
     path: "/Application",
     title: "快捷应用",
     icon: <AppstoreOutlined />,
-    component: <ApplicationPage></ApplicationPage>,
+    component: (
+      <Layout>
+        <ApplicationPage></ApplicationPage>
+      </Layout>
+    ),
   },
   {
     path: "/",
@@ -32,22 +36,38 @@ export const routerConfig: Array<baseConfig> = [
     path: "/module",
     title: "研发效能盘",
     icon: <CoffeeOutlined />,
-    component: <ModulePage></ModulePage>,
+    component: (
+      <Layout>
+        <ModulePage></ModulePage>
+      </Layout>
+    ),
     children: [
       {
         title: "生产质量",
         path: "/module/product", // 生产质量
-        component: <ModulePage></ModulePage>,
+        component: (
+          <Layout>
+            <ModulePage></ModulePage>
+          </Layout>
+        ),
       },
       {
         title: "迭代效率",
         path: "/module/efficient", // 迭代效率
-        component: <ModulePage></ModulePage>,
+        component: (
+          <Layout>
+            <ModulePage></ModulePage>
+          </Layout>
+        ),
       },
       {
         title: "需求响应力",
         path: "/module/response", // 需求向应力
-        component: <ModulePage></ModulePage>,
+        component: (
+          <Layout>
+            <ModulePage></ModulePage>
+          </Layout>
+        ),
       },
     ],
   },
@@ -56,12 +76,20 @@ export const routerConfig: Array<baseConfig> = [
     title: "产研宅基地",
     path: "/ExperienceBase",
     icon: <CoffeeOutlined />,
-    component: <IframePage></IframePage>,
+    component: (
+      <Layout>
+        <IframePage></IframePage>
+      </Layout>
+    ),
   },
   {
     isMenu: false,
     path: "*",
-    component: <ErrorPage></ErrorPage>,
+    component: (
+      <Layout>
+        <ErrorPage></ErrorPage>
+      </Layout>
+    ),
   },
 ];
 

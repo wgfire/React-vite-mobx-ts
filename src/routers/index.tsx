@@ -4,18 +4,16 @@ import { Route, Switch } from "react-router-dom";
 import { baseConfig, flatRouter } from "./config";
 import { InterceptorRoute } from "./interceptorRoute";
 import Login from "@/pages/Login/Login";
-import Layout from "@/components/Layout";
 const RouterContainer: React.FC = () => (
   <div className='router-container'>
     <Suspense fallback={<Spin />}>
       <Switch>
         <Route path='/login' exact={true} component={Login}></Route>
-        <Layout>
-          {flatRouter().map((el, index) => {
-            const router = SetRouter(el);
-            return router;
-          })}
-        </Layout>
+
+        {flatRouter().map((el, index) => {
+          const router = SetRouter(el);
+          return router;
+        })}
 
         {/* <Redirect from='/' exact={true} to={{ pathname: "/Application" }}></Redirect> */}
       </Switch>
